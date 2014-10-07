@@ -11,16 +11,46 @@ def get_server_details(server, port, mount):
             soup = BeautifulSoup(html)
 
             info = {}
-            info['stream_title'] = soup.find(text="Stream Title:").findNext('td').contents[0]
-            info['stream_description'] = soup.find(text="Stream Description:").findNext('td').contents[0]
-            info['content_type'] = soup.find(text="Content Type:").findNext('td').contents[0]
-            info['mount_started'] = soup.find(text="Mount started:").findNext('td').contents[0]
-            info['quality'] = soup.find(text="Quality:").findNext('td').contents[0]
-            info['current_listeners'] = soup.find(text="Current Listeners:").findNext('td').contents[0]
-            info['peak_listeners'] = soup.find(text="Peak Listeners:").findNext('td').contents[0]
-            info['stream_genre'] = soup.find(text="Stream Genre:").findNext('td').contents[0]
-            info['stream_url'] = soup.find(text="Stream URL:").findNext('td').findNext('a').contents[0]
-            info['current_song'] = soup.find(text="Current Song:").findNext('td').contents[0]
+            try:
+                info['stream_title'] = soup.find(text="Stream Title:").findNext('td').contents[0]
+            except:
+                pass
+            try:
+                info['stream_description'] = soup.find(text="Stream Description:").findNext('td').contents[0]
+            except:
+                pass
+            try:
+                info['content_type'] = soup.find(text="Content Type:").findNext('td').contents[0]
+            except:
+                pass
+            try:
+                info['mount_started'] = soup.find(text="Mount started:").findNext('td').contents[0]
+            except:
+                pass
+            try:
+                info['quality'] = soup.find(text="Quality:").findNext('td').contents[0]
+            except:
+                pass
+            try:
+                info['current_listeners'] = soup.find(text="Current Listeners:").findNext('td').contents[0]
+            except:
+                pass
+            try:
+                info['peak_listeners'] = soup.find(text="Peak Listeners:").findNext('td').contents[0]
+            except:
+                pass
+            try:
+                info['stream_genre'] = soup.find(text="Stream Genre:").findNext('td').contents[0]
+            except:
+                pass
+            try:
+                info['stream_url'] = soup.find(text="Stream URL:").findNext('td').findNext('a').contents[0]
+            except:
+                pass
+            try:
+                info['current_song'] = soup.find(text="Current Song:").findNext('td').contents[0]
+            except:
+                pass
 
             return info 
         else:
